@@ -15,6 +15,10 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 public class exo4 extends Application {
+    private Label topLabel = new Label("");
+    private int compteurVert = 0;
+    private int compteurRouge = 0;
+    private int compteurBleu = 0;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -23,7 +27,6 @@ public class exo4 extends Application {
         BorderPane borderPane = new BorderPane();
 
         //TopLabel
-        Label topLabel = new Label("hello");
         HBox topHBox = new HBox(topLabel);
         topHBox.setAlignment(Pos.CENTER);
         borderPane.setTop(topHBox);
@@ -33,11 +36,11 @@ public class exo4 extends Application {
 
         //BottomButtons
         Button vert = new Button("Vert");
-        vert.addEventHandler(MouseEvent.MOUSE_CLICKED, actionEvent -> handleButonClick(actionEvent) );
+        vert.addEventHandler(MouseEvent.MOUSE_CLICKED, actionEvent -> handleButonClickVert(actionEvent) );
         Button rouge = new Button("Rouge");
-        rouge.addEventHandler(MouseEvent.MOUSE_CLICKED, actionEvent -> handleButonClick(actionEvent) );
+        rouge.addEventHandler(MouseEvent.MOUSE_CLICKED, actionEvent -> handleButonClickRouge(actionEvent) );
         Button bleu = new Button("Bleu");
-        bleu.addEventHandler(MouseEvent.MOUSE_CLICKED, actionEvent -> handleButonClick(actionEvent) );
+        bleu.addEventHandler(MouseEvent.MOUSE_CLICKED, actionEvent -> handleButonClickBleu(actionEvent) );
 
         HBox bottomHBox = new HBox(vert,rouge,bleu);
         bottomHBox.setAlignment(Pos.CENTER);
@@ -59,10 +62,19 @@ public class exo4 extends Application {
         primaryStage.show();
     }
 
-    private void handleButonClick(MouseEvent actionEvent) {
-        
-    }
+    private void handleButonClickVert(MouseEvent actionEvent) {
+        compteurVert +=1;
+        topLabel.setText("Compteur de Vert : " + compteurVert);
 
+    }
+    private void handleButonClickRouge(MouseEvent actionEvent) {
+        compteurRouge+=1;
+        topLabel.setText("Compteur de Rouge : " + compteurRouge);
+    }
+    private void handleButonClickBleu(MouseEvent actionEvent) {
+        compteurBleu+=1;
+        topLabel.setText("Compteur de Bleu : " + compteurBleu);
+    }
     public void handle(Event event) {
 
     }
