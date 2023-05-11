@@ -19,6 +19,7 @@ public class Exo1 extends Application {
         // Création du conteneur principal
         BorderPane borderPane = new BorderPane();
 
+
         // Création du conteneur correspondant à la ligne de contrôle haut dessus du tableau
         ToolBar topControls = new ToolBar();
 
